@@ -68,7 +68,7 @@ A sidebar switch lets you flag transactions by the **cost-optimal** threshold, t
 ## 🚀 Quick start
 
 ```bash
-git clone https://github.com/<your-username>/credit-card-fraud-detection.git
+git clone https://github.com/D0027/credit-card-fraud-detection.git
 cd credit-card-fraud-detection
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
