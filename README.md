@@ -13,7 +13,7 @@
 <br/>
 
 <a href="https://credit-card-fraud-detection-027.streamlit.app/">
-  <img src="https://img.shields.io/badge/-%E2%96%B6%20%20LAUNCH%20LIVE%20DEMO-00bfa5?style=for-the-badge" alt="Launch live demo" height="46"/>
+  <img src="https://img.shields.io/badge/Launch-Live_Demo-00bfa5?style=for-the-badge&logo=streamlit&logoColor=white" alt="Launch live demo" height="46"/>
 </a>
 &nbsp;
 <a href="https://credit-card-fraud-detection-027.streamlit.app/">
@@ -30,19 +30,21 @@
 ![PR-AUC](https://img.shields.io/badge/test%20PR--AUC-0.752-blueviolet)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-![Stars](https://img.shields.io/github/stars/D0027/credit-card-fraud-detection?style=flat-square&color=0f8f84)
-![Last commit](https://img.shields.io/github/last-commit/D0027/credit-card-fraud-detection?style=flat-square&color=4b3fd1)
-![Repo size](https://img.shields.io/github/repo-size/D0027/credit-card-fraud-detection?style=flat-square&color=0b1020)
+![Dataset](https://img.shields.io/badge/Dataset-283%2C726_transactions-0b1020)
+![Fraud rate](https://img.shields.io/badge/Fraud_rate-0.17%25-ff5c6c)
+![Split](https://img.shields.io/badge/Split-time--ordered_70%2F15%2F15-4b3fd1)
 
 <br/>
 
-[![Live demo](https://img.shields.io/badge/-Live_demo-00bfa5?style=flat-square)](https://credit-card-fraud-detection-027.streamlit.app/)
-[![Results](https://img.shields.io/badge/-Results-0f8f84?style=flat-square)](#-results)
-[![The app](https://img.shields.io/badge/-The_app-0f8f84?style=flat-square)](#-the-app)
-[![Quick start](https://img.shields.io/badge/-Quick_start-0f8f84?style=flat-square)](#-quick-start)
-[![How it works](https://img.shields.io/badge/-How_it_works-4b3fd1?style=flat-square)](#-how-it-works)
-[![Gallery](https://img.shields.io/badge/-Gallery-4b3fd1?style=flat-square)](#-gallery)
-[![Limitations](https://img.shields.io/badge/-Limitations-ff5c6c?style=flat-square)](#-limitations)
+<b>
+<a href="https://credit-card-fraud-detection-027.streamlit.app/">🚀 Live demo</a> &nbsp;·&nbsp;
+<a href="#-results">📈 Results</a> &nbsp;·&nbsp;
+<a href="#-the-app">🖥️ The app</a> &nbsp;·&nbsp;
+<a href="#-quick-start">⚡ Quick start</a> &nbsp;·&nbsp;
+<a href="#-how-it-works">🧠 How it works</a> &nbsp;·&nbsp;
+<a href="#-gallery">📊 Gallery</a> &nbsp;·&nbsp;
+<a href="#-limitations">⚠️ Limitations</a>
+</b>
 
 </div>
 
@@ -332,7 +334,7 @@ credit-card-fraud-detection/
 ![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
-![LightGBM](https://img.shields.io/badge/-LightGBM-00bfa5?style=for-the-badge)
+![LightGBM](https://img.shields.io/badge/Gradient_Boosting-LightGBM-00bfa5?style=for-the-badge)
 ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 ![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
@@ -363,7 +365,7 @@ Code released under the [MIT License](LICENSE). The dataset keeps its own licens
 **If this project helped you, drop a ⭐ on the repo.**
 
 <a href="https://credit-card-fraud-detection-027.streamlit.app/">
-  <img src="https://img.shields.io/badge/-%E2%96%B6%20%20OPEN%20THE%20LIVE%20APP-00bfa5?style=for-the-badge" alt="Open the live app" height="40"/>
+  <img src="https://img.shields.io/badge/Open-The_Live_App-00bfa5?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open the live app" height="40"/>
 </a>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4b3fd1,50:0f8f84,100:0b1020&height=120&section=footer" alt="footer wave" width="100%"/>
