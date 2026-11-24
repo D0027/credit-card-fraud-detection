@@ -1,9 +1,9 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b1020,50:0f8f84,100:4b3fd1&height=220&section=header&text=FraudSense&fontSize=68&fontColor=ffffff&fontAlignY=38&desc=Explainable%20credit%20card%20fraud%20detection&descAlignY=60&descSize=20" alt="FraudSense banner" width="100%"/>
+<img src="assets/banner.svg" alt="FraudSense banner: explainable credit card fraud detection" width="100%"/>
 
 <a href="https://credit-card-fraud-detection-027.streamlit.app/">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1400&color=00BFA5&center=true&vCenter=true&width=760&height=40&lines=283%2C726+transactions.+473+frauds.+0.17%25+positives.;Time-ordered+split.+Test+set+read+once.;Every+alert+comes+with+a+SHAP+explanation.;The+alert+line+is+set+with+money%2C+not+vanity+metrics." alt="FraudSense typing animation"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1400&color=0F8F84&center=true&vCenter=true&width=760&height=40&lines=283%2C726+transactions.+473+frauds.+0.17%25+positives.;Time-ordered+split.+Test+set+read+once.;Every+alert+comes+with+a+SHAP+explanation.;The+alert+line+is+set+with+money%2C+not+vanity+metrics." alt="FraudSense typing animation"/>
 </a>
 
 <br/>
@@ -12,29 +12,25 @@
 
 <br/>
 
-<a href="https://credit-card-fraud-detection-027.streamlit.app/">
-  <img src="https://img.shields.io/badge/Launch-Live_Demo-00bfa5?style=for-the-badge&logo=streamlit&logoColor=white" alt="Launch live demo" height="46"/>
-</a>
+<a href="https://credit-card-fraud-detection-027.streamlit.app/"><img src="assets/btn-live-demo.svg" alt="Launch live demo" height="50"/></a>
 &nbsp;
-<a href="https://credit-card-fraud-detection-027.streamlit.app/">
-  <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit" height="46"/>
-</a>
+<a href="https://credit-card-fraud-detection-027.streamlit.app/"><img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit" height="46"/></a>
 
 <br/><br/>
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![LightGBM](https://img.shields.io/badge/Model-LightGBM_tuned-00bfa5)
-![SHAP](https://img.shields.io/badge/Explainability-SHAP-ff5c6c)
-![Streamlit](https://img.shields.io/badge/Streamlit-app-FF4B4B?logo=streamlit&logoColor=white)
-![Plotly](https://img.shields.io/badge/Plotly-charts-3F4F75?logo=plotly&logoColor=white)
-![PR-AUC](https://img.shields.io/badge/test%20PR--AUC-0.752-blueviolet)
-![License](https://img.shields.io/badge/License-MIT-green)
+<img src="assets/badge-python.svg" alt="Python 3.10+"/>
+<img src="assets/badge-lightgbm.svg" alt="Model: LightGBM tuned"/>
+<img src="assets/badge-shap.svg" alt="Explainability: SHAP"/>
+<img src="assets/badge-streamlit.svg" alt="Streamlit app"/>
+<img src="assets/badge-plotly.svg" alt="Plotly charts"/>
+<img src="assets/badge-prauc.svg" alt="test PR-AUC 0.752"/>
+<img src="assets/badge-license.svg" alt="License: MIT"/>
 
-![Dataset](https://img.shields.io/badge/Dataset-283%2C726_transactions-0b1020)
-![Fraud rate](https://img.shields.io/badge/Fraud_rate-0.17%25-ff5c6c)
-![Split](https://img.shields.io/badge/Split-time--ordered_70%2F15%2F15-4b3fd1)
+<img src="assets/badge-dataset.svg" alt="Dataset: 283,726 transactions"/>
+<img src="assets/badge-fraudrate.svg" alt="Fraud rate: 0.17%"/>
+<img src="assets/badge-split.svg" alt="Split: time-ordered 70/15/15"/>
 
-<br/>
+<br/><br/>
 
 <b>
 <a href="https://credit-card-fraud-detection-027.streamlit.app/">🚀 Live demo</a> &nbsp;·&nbsp;
@@ -46,9 +42,11 @@
 <a href="#-limitations">⚠️ Limitations</a>
 </b>
 
-</div>
+<br/><br/>
 
----
+<img src="assets/divider.svg" alt="" width="100%"/>
+
+</div>
 
 ## 🎯 The problem
 
@@ -58,14 +56,10 @@ FraudSense is built around what actually matters: catching fraud, not annoying g
 
 <div align="center">
 
-<table>
-<tr>
-<td align="center" width="25%"><h2>0.752</h2><sub>📊 <b>PR-AUC</b> (test)</sub></td>
-<td align="center" width="25%"><h2>75%</h2><sub>🎯 <b>Fraud caught</b></sub></td>
-<td align="center" width="25%"><h2>76.5%</h2><sub>✅ <b>Alert precision</b></sub></td>
-<td align="center" width="25%"><h2>57.4%</h2><sub>💶 <b>Cost saved</b> vs no model</sub></td>
-</tr>
-</table>
+<img src="assets/stat-prauc.svg" alt="PR-AUC (test): 0.752" width="24%"/>
+<img src="assets/stat-caught.svg" alt="Fraud caught: 75%" width="24%"/>
+<img src="assets/stat-precision.svg" alt="Alert precision: 76.5%" width="24%"/>
+<img src="assets/stat-saved.svg" alt="Cost saved vs no model: 57.4%" width="24%"/>
 
 </div>
 
@@ -313,6 +307,7 @@ credit-card-fraud-detection/
 ├── train.py                  # rebuild the model from creditcard.csv
 ├── requirements.txt
 ├── .streamlit/config.toml    # dark theme + upload limit
+├── assets/                   # SVG banner, buttons and badges used by this README
 ├── src/
 │   ├── config.py             # paths, constants, notebook facts
 │   ├── inference.py          # feature engineering, scoring, SHAP
@@ -330,14 +325,15 @@ credit-card-fraud-detection/
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
-![LightGBM](https://img.shields.io/badge/Gradient_Boosting-LightGBM-00bfa5?style=for-the-badge)
-![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
+<img src="assets/tech-python.svg" alt="Python"/>
+<img src="assets/tech-pandas.svg" alt="pandas"/>
+<img src="assets/tech-numpy.svg" alt="NumPy"/>
+<img src="assets/tech-sklearn.svg" alt="scikit-learn"/>
+<img src="assets/tech-lightgbm.svg" alt="LightGBM"/>
+<img src="assets/tech-shap.svg" alt="SHAP"/>
+<img src="assets/tech-plotly.svg" alt="Plotly"/>
+<img src="assets/tech-streamlit.svg" alt="Streamlit"/>
+<img src="assets/tech-kaggle.svg" alt="Kaggle"/>
 
 </div>
 
@@ -364,10 +360,10 @@ Code released under the [MIT License](LICENSE). The dataset keeps its own licens
 
 **If this project helped you, drop a ⭐ on the repo.**
 
-<a href="https://credit-card-fraud-detection-027.streamlit.app/">
-  <img src="https://img.shields.io/badge/Open-The_Live_App-00bfa5?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open the live app" height="40"/>
-</a>
+<a href="https://credit-card-fraud-detection-027.streamlit.app/"><img src="assets/btn-open-app.svg" alt="Open the live app" height="50"/></a>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4b3fd1,50:0f8f84,100:0b1020&height=120&section=footer" alt="footer wave" width="100%"/>
+<br/>
+
+<img src="assets/footer.svg" alt="" width="100%"/>
 
 </div>
