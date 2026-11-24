@@ -7,7 +7,7 @@
 <br/>
 
 <a href="https://credit-card-fraud-detection-027.streamlit.app/">
-  <img src="https://img.shields.io/badge/%E2%96%B6%20%20LAUNCH%20LIVE%20DEMO-00bfa5?style=for-the-badge&logoColor=white" alt="Launch live demo" height="46"/>
+  <img src="https://img.shields.io/badge/-%E2%96%B6%20%20LAUNCH%20LIVE%20DEMO-00bfa5?style=for-the-badge" alt="Launch live demo" height="46"/>
 </a>
 &nbsp;
 <a href="https://credit-card-fraud-detection-027.streamlit.app/">
@@ -17,7 +17,7 @@
 <br/><br/>
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![LightGBM](https://img.shields.io/badge/LightGBM-tuned-00bfa5)
+![LightGBM](https://img.shields.io/badge/Model-LightGBM_tuned-00bfa5)
 ![SHAP](https://img.shields.io/badge/Explainability-SHAP-ff5c6c)
 ![Streamlit](https://img.shields.io/badge/Streamlit-app-FF4B4B?logo=streamlit&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-charts-3F4F75?logo=plotly&logoColor=white)
@@ -216,7 +216,7 @@ credit-card-fraud-detection/
 ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
-![LightGBM](https://img.shields.io/badge/LightGBM-00bfa5?style=flat-square)
+![LightGBM](https://img.shields.io/badge/-LightGBM-00bfa5?style=flat-square)
 ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 ![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)
