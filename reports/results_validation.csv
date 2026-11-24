@@ -1,0 +1,6 @@
+Model,PR-AUC,ROC-AUC
+Random Forest,0.8653,0.9885
+LightGBM (tuned),0.8457,0.9824
+Logistic Regression,0.8089,0.9813
+Logistic Regression + SMOTE,0.8038,0.9772
+Dummy,0.0013,0.5

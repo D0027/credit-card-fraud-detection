@@ -1,0 +1,65 @@
+{
+  "features": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "log_amount",
+    "hour_sin",
+    "hour_cos"
+  ],
+  "feature_engineering": {
+    "amount": "log1p(Amount)",
+    "time": "hour of day -> sin/cos (Time // 3600 % 24)"
+  },
+  "deployed_model": "LightGBM (tuned)",
+  "best_on_validation": "Random Forest",
+  "lgbm_params": {
+    "num_leaves": 31,
+    "learning_rate": 0.03,
+    "min_child_samples": 100,
+    "feature_fraction": 1.0,
+    "bagging_fraction": 1.0,
+    "lambda_l2": 5.0,
+    "scale_pos_weight": 23.273263818020226
+  },
+  "rounds": 168,
+  "threshold_f1": 0.83,
+  "threshold_cost": 0.64,
+  "review_cost_assumption": 5.0,
+  "split": {
+    "train_frac": 0.7,
+    "val_frac": 0.15,
+    "type": "time-ordered"
+  },
+  "test": {
+    "n": 42559,
+    "frauds": 52,
+    "pr_auc": 0.7516,
+    "roc_auc": 0.9758
+  }
+}
