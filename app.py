@@ -57,9 +57,9 @@ with st.sidebar:
     st.caption(f"Active threshold: **{THR:.2f}**")
     st.markdown("---")
     if bundle.ready:
-        st.markdown('<span class="chip teal">● Model loaded</span>', unsafe_allow_html=True)
+        st.markdown(ui.live_chip("Model loaded", "teal"), unsafe_allow_html=True)
     else:
-        st.markdown('<span class="chip amber">● Model file missing</span>', unsafe_allow_html=True)
+        st.markdown(ui.live_chip("Model file missing", "amber"), unsafe_allow_html=True)
     st.caption("LightGBM · time-ordered validation · native SHAP")
 
 
@@ -77,7 +77,7 @@ def need_model() -> bool:
 def page_overview() -> None:
     st.markdown(
         """
-        <div class="hero">
+        <div class="hero"><div class="hero-beam"></div>
           <h1>Catch card fraud without freezing good customers.</h1>
           <p>A LightGBM risk engine trained on 283,726 real card transactions where only 0.17% are fraud.
           Scores any transaction in milliseconds, explains why with SHAP, and picks its alert threshold
@@ -86,6 +86,7 @@ def page_overview() -> None:
           <span class="chip coral">75% of fraud caught</span>
           <span class="chip amber">57% lower total cost than no model</span>
         </div>""", unsafe_allow_html=True)
+    st.markdown(ui.ticker(), unsafe_allow_html=True)
 
     st.write("")
     ops = report("operating_points.csv").set_index("Operating point")
@@ -189,19 +190,18 @@ def page_checker() -> None:
     flagged = p >= THR
 
     with right:
-        st.markdown('<div class="glass">', unsafe_allow_html=True)
-        st.markdown(ui.risk_ring(p, band), unsafe_allow_html=True)
-        if flagged:
-            st.markdown(f'<div style="text-align:center;margin-top:.8rem" class="chip coral">⚑ Flagged at threshold {THR:.2f}</div>', unsafe_allow_html=True)
-        else:
-            st.markdown(f'<div style="text-align:center;margin-top:.8rem" class="chip teal">✓ Not flagged at threshold {THR:.2f}</div>', unsafe_allow_html=True)
-        st.caption("The score ranks risk. It is not a literal probability because the model was trained with extra weight on fraud.")
-        st.markdown("</div>", unsafe_allow_html=True)
+        chip = (f'<span class="chip coral"><span class="dot"></span>Flagged at threshold {THR:.2f}</span>' if flagged
+                else f'<span class="chip teal"><span class="dot"></span>Not flagged at threshold {THR:.2f}</span>')
+        st.markdown(
+            f'<div class="glass">{ui.risk_ring(p, band)}'
+            f'<div style="text-align:center;margin-top:.9rem">{chip}</div>'
+            '<p style="color:#8FA0BF;font-size:.8rem;text-align:center;margin:.6rem 0 0;line-height:1.5">'
+            'The score ranks risk. It is not a literal probability because the model was trained with extra weight on fraud.</p></div>',
+            unsafe_allow_html=True)
 
     contrib = inf.explain(bundle, raw).iloc[0]
     feats = inf.make_features(raw).iloc[0]
     reasons = inf.top_reasons(contrib, feats, 8)
-    reasons["feature"] = reasons["feature"]
     st.write("")
     w1, w2 = st.columns([1.3, 1], gap="large")
     with w1:
