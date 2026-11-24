@@ -1,40 +1,89 @@
 <div align="center">
 
-# 🛡️ FraudSense
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b1020,50:0f8f84,100:4b3fd1&height=200&section=header&text=FraudSense&fontSize=64&fontColor=ffffff&fontAlignY=38&desc=Explainable%20credit%20card%20fraud%20detection&descAlignY=60&descSize=20" alt="FraudSense banner" width="100%"/>
 
-### Credit card fraud detection with explainable ML and a cost-aware alert threshold
+### Catch fraud in a 0.17%-fraud world, explain every decision, and set the alert line using money instead of vanity metrics.
 
-Catch fraud in a 0.17%-fraud world, explain every decision, and set the alert line using money instead of vanity metrics.
+<br/>
+
+<a href="https://credit-card-fraud-detection-027.streamlit.app/">
+  <img src="https://img.shields.io/badge/%E2%96%B6%20%20LAUNCH%20LIVE%20DEMO-00bfa5?style=for-the-badge&logoColor=white" alt="Launch live demo" height="46"/>
+</a>
+&nbsp;
+<a href="https://credit-card-fraud-detection-027.streamlit.app/">
+  <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit" height="46"/>
+</a>
+
+<br/><br/>
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![LightGBM](https://img.shields.io/badge/LightGBM-tuned-2DE2C5)
+![LightGBM](https://img.shields.io/badge/LightGBM-tuned-00bfa5)
+![SHAP](https://img.shields.io/badge/Explainability-SHAP-ff5c6c)
 ![Streamlit](https://img.shields.io/badge/Streamlit-app-FF4B4B?logo=streamlit&logoColor=white)
-![PR-AUC](https://img.shields.io/badge/test%20PR--AUC-0.752-8B7CFF)
+![Plotly](https://img.shields.io/badge/Plotly-charts-3F4F75?logo=plotly&logoColor=white)
+![PR-AUC](https://img.shields.io/badge/test%20PR--AUC-0.752-blueviolet)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-<!-- Add after deploying:  [**▶ Live demo**](https://your-app.streamlit.app) -->
+[Live demo](https://credit-card-fraud-detection-027.streamlit.app/) · [Results](#-results) · [The app](#-the-app) · [Quick start](#-quick-start) · [How it works](#-how-it-works) · [Gallery](#-gallery) · [Limitations](#-limitations)
 
 </div>
 
 ---
 
+## 🎯 The problem
+
+Out of **283,726** real card transactions, only **473 (0.17%)** are fraud. A model that always says "normal" scores **99.83% accuracy** and catches **zero** fraud, so accuracy is useless here.
+
+FraudSense is built around what actually matters: catching fraud, not annoying good customers, and knowing what each alert is worth.
+
+<div align="center">
+
+| 📊 PR-AUC (test) | 🎯 Fraud caught | ✅ Alert precision | 💶 Cost saved vs no model |
+|:---:|:---:|:---:|:---:|
+| **0.752** | **75%** | **76.5%** | **57.4%** |
+
+</div>
+
 ## ✨ Highlights
 
 | | |
 |---|---|
-| **Honest evaluation** | Time-ordered train / validation / test split. Thresholds are chosen on validation, and the test set is read once. |
-| **Right metrics** | PR-AUC first. Accuracy is ignored because an "always normal" model already scores **99.83%**. |
-| **5 models compared** | Dummy, Logistic Regression, LR + SMOTE, Random Forest and a tuned LightGBM. |
-| **Money-based threshold** | Cost of missed fraud + cost of analyst reviews, with a live what-if slider in the app. |
-| **Explainable** | Exact SHAP contributions from LightGBM, globally and for every single transaction. |
-| **Advanced Streamlit UI** | Glass UI with an animated backdrop, a risk-score ring, interactive Plotly charts, batch scoring and CSV download. |
+| ⏱️ **Honest evaluation** | Time-ordered train / validation / test split. Thresholds are chosen on validation, and the test set is read once. |
+| 📏 **Right metrics** | PR-AUC first, then precision, recall, F1, Precision@K and a business cost simulation. |
+| 🤖 **5 models compared** | Dummy, Logistic Regression, LR + SMOTE, Random Forest and a tuned LightGBM. |
+| 💶 **Money-based threshold** | Cost of missed fraud plus cost of analyst reviews, with a live what-if slider in the app. |
+| 🔍 **Explainable** | Exact SHAP contributions from LightGBM, globally and for every single transaction. |
+| 🎨 **Advanced Streamlit UI** | Glass UI with an animated backdrop, a risk-score ring, interactive Plotly charts, batch scoring and CSV download. |
 
-## 📈 Results (test set: newest 15% of transactions)
+## 🖥️ The app
+
+<div align="center">
+
+**[👉 Try it live: credit-card-fraud-detection-027.streamlit.app](https://credit-card-fraud-detection-027.streamlit.app/)**
+
+</div>
+
+| Page | What it does |
+|---|---|
+| 🏠 **Overview** | Headline metrics, pipeline, data split and an honest read of the results |
+| 🔎 **Risk Checker** | Enter one transaction, get a risk-score ring, a verdict and a SHAP breakdown of the reasons |
+| 📦 **Batch Scanner** | Upload a CSV, score every row, review the riskiest, explain any row, download results |
+| 🧪 **Model Lab** | Model comparison, tuning trials, cost what-if slider, analyst review budget |
+| 🧠 **Explainability** | Global SHAP importance and local explanations (caught fraud, missed fraud, false alarm) |
+| 📊 **Data & EDA** | Class balance, feature distributions and the feature engineering table |
+
+A sidebar switch lets you flag transactions by the **cost-optimal** threshold, the **F1-optimal** threshold, or your own.
+
+> 💡 **Quick tour:** open the *Risk Checker*, press **Fraud-like profile**, and watch the ring turn red. Then check the SHAP chart to see which signals pushed the score up.
+
+## 📈 Results
+
+Test set = the newest 15% of transactions, read once.
 
 | Model | PR-AUC | ROC-AUC |
 |---|---:|---:|
 | Random Forest | 0.7731 | 0.9493 |
-| **LightGBM (tuned), deployed** | **0.7516** | **0.9758** |
+| 🏆 **LightGBM (tuned), deployed** | **0.7516** | **0.9758** |
 | Logistic Regression + SMOTE | 0.6999 | 0.9717 |
 | Logistic Regression | 0.6921 | 0.9766 |
 | Dummy | 0.0012 | 0.5000 |
@@ -52,18 +101,49 @@ Without a model, every fraud gets through and the test window costs **€6,169**
 
 > ⚠️ The test window contains only **52 frauds**, so every test metric has wide error bars. The €5 review cost is an assumption, not a bank figure.
 
-## 🖥️ The app
+## 🧠 How it works
 
-| Page | What it does |
+```mermaid
+flowchart LR
+    A["creditcard.csv<br/>283,726 rows"] --> B["De-duplicate<br/>sort by Time"]
+    B --> C["Feature engineering<br/>log Amount, hour sin/cos"]
+    C --> D["Time split<br/>70 / 15 / 15"]
+    D --> E["5 models<br/>+ LightGBM tuning"]
+    E --> F["Thresholds<br/>chosen on validation"]
+    F --> G["One test<br/>evaluation"]
+    G --> H["SHAP + Streamlit app"]
+```
+
+- **Why a time split?** In real life a model trains on the past and scores the future. A random split leaks future patterns into training and inflates scores.
+- **Why PR-AUC?** With 0.17% positives, PR-AUC reflects the quality of the alerts. ROC-AUC looks great even for weak models.
+- **Why a cost threshold?** A missed fraud loses its full amount, while a false alarm costs an analyst review. The best threshold depends on that ratio.
+- **Scores are for ranking.** The model uses `scale_pos_weight ≈ 23`, so a score of 0.9 is not a 90% probability.
+
+<details>
+<summary><b>Feature engineering</b></summary>
+
+| Raw column | Becomes | Why |
+|---|---|---|
+| `V1` … `V28` | used as is | already PCA components from the data provider |
+| `Amount` | `log_amount = log(1 + Amount)` | amounts are heavily right-skewed |
+| `Time` (seconds) | `hour_sin`, `hour_cos` | hour of day as a circle, so 23:00 sits next to 00:00 |
+
+</details>
+
+<details>
+<summary><b>Final LightGBM configuration</b></summary>
+
+| Parameter | Value |
 |---|---|
-| **Overview** | Headline metrics, pipeline, data split and an honest read of the results |
-| **Risk Checker** | Enter one transaction, get a risk-score ring, a verdict and a SHAP breakdown of the reasons |
-| **Batch Scanner** | Upload a CSV, score every row, review the riskiest, explain any row, download results |
-| **Model Lab** | Model comparison, tuning trials, cost what-if slider, analyst review budget |
-| **Explainability** | Global SHAP importance and local explanations (caught fraud, missed fraud, false alarm) |
-| **Data & EDA** | Class balance, feature distributions and the feature engineering table |
+| `num_leaves` | 31 |
+| `learning_rate` | 0.03 |
+| `min_child_samples` | 100 |
+| `feature_fraction` / `bagging_fraction` | 1.0 / 1.0 |
+| `lambda_l2` | 5.0 |
+| `scale_pos_weight` | ≈ 23.27 |
+| Rounds | 168 (early stopping on validation PR-AUC) |
 
-A sidebar switch lets you flag transactions by the **cost-optimal** threshold, the **F1-optimal** threshold, or your own.
+</details>
 
 ## 🚀 Quick start
 
@@ -75,51 +155,37 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The Risk Checker and Batch Scanner need the trained model in `model/fraud_model.txt`. Pick one option:
+The trained model is already in `model/fraud_model.txt`, so the app works right away.
 
-1. **Use the notebook output.** Run `notebooks/credit-card-fraud.ipynb` on Kaggle and copy `fraud_model.txt` into `model/`.
-2. **Retrain locally.** Download [`creditcard.csv`](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) into `data/` and run:
+<details>
+<summary><b>Retrain the model yourself</b></summary>
+
+Download [`creditcard.csv`](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) into `data/` and run:
 
 ```bash
-python train.py --data data/creditcard.csv                 # reuses the notebook's best config (about 10 seconds)
-python train.py --data data/creditcard.csv --tune 10       # or repeat the random search
+python train.py --data data/creditcard.csv                    # reuses the notebook's best config (about 10 seconds)
+python train.py --data data/creditcard.csv --tune 10          # or repeat the random search
 python train.py --data data/creditcard.csv --review-cost 10   # re-tune thresholds for a different review cost
 ```
 
-The Overview, Model Lab, Explainability and Data pages work even before a model file is added.
+</details>
 
 Want a quick batch demo? Click **Load demo file** in the Batch Scanner. It uses `data/sample_transactions.csv`, a **synthetic** file made by `scripts/make_demo.py`, so its scores only show how the app behaves.
-
-## 🧠 How it works
-
-```
-creditcard.csv ─► de-duplicate ─► sort by Time ─► feature engineering
-                                                    │  log1p(Amount), hour of day as sin/cos
-                                                    ▼
-          70% train ──► fit 5 models ──► LightGBM random search (val PR-AUC, early stopping)
-          15% val   ──► pick F1-optimal and cost-optimal thresholds
-          15% test  ──► evaluate once ──► SHAP explanations ──► model/fraud_model.txt ──► Streamlit app
-```
-
-- **Why a time split?** In real life a model trains on the past and scores the future. A random split leaks future patterns into training and inflates scores.
-- **Why PR-AUC?** With 0.17% positives, PR-AUC reflects the quality of the alerts. ROC-AUC looks great even for weak models.
-- **Why a cost threshold?** A missed fraud loses its full amount, while a false alarm costs an analyst review. The best threshold depends on that ratio.
-- **Scores are for ranking.** The model uses `scale_pos_weight ≈ 23`, so a score of 0.9 is not a 90% probability.
 
 ## 📊 Gallery
 
 <table>
 <tr>
-<td><img src="images/model_comparison.png" alt="Model comparison"></td>
-<td><img src="images/threshold_selection.png" alt="Threshold selection"></td>
+<td align="center"><img src="images/model_comparison.png" alt="Model comparison"><br/><sub><b>Model comparison</b></sub></td>
+<td align="center"><img src="images/threshold_selection.png" alt="Threshold selection"><br/><sub><b>Threshold and cost selection</b></sub></td>
 </tr>
 <tr>
-<td><img src="images/test_evaluation.png" alt="Test evaluation"></td>
-<td><img src="images/shap_summary.png" alt="SHAP summary"></td>
+<td align="center"><img src="images/test_evaluation.png" alt="Test evaluation"><br/><sub><b>Test evaluation</b></sub></td>
+<td align="center"><img src="images/shap_summary.png" alt="SHAP summary"><br/><sub><b>SHAP: global importance</b></sub></td>
 </tr>
 <tr>
-<td><img src="images/shap_local.png" alt="Local SHAP explanations"></td>
-<td><img src="images/eda_overview.png" alt="EDA overview"></td>
+<td align="center"><img src="images/shap_local.png" alt="Local SHAP explanations"><br/><sub><b>SHAP: single transactions</b></sub></td>
+<td align="center"><img src="images/eda_overview.png" alt="EDA overview"><br/><sub><b>Data overview</b></sub></td>
 </tr>
 </table>
 
@@ -136,7 +202,7 @@ credit-card-fraud-detection/
 │   ├── inference.py          # feature engineering, scoring, SHAP
 │   ├── charts.py             # Plotly figures
 │   └── ui.py                 # CSS theme and HTML components
-├── model/                    # fraud_model.txt (you add) + model_meta.json
+├── model/                    # fraud_model.txt + model_meta.json
 ├── reports/                  # result tables exported from the notebook run
 ├── images/                   # plots exported from the notebook run
 ├── notebooks/credit-card-fraud.ipynb
@@ -144,12 +210,16 @@ credit-card-fraud-detection/
 └── data/                     # sample_transactions.csv (+ creditcard.csv, not committed)
 ```
 
-## ☁️ Deploy on Streamlit Community Cloud
+## 🛠️ Tech stack
 
-1. Push this repo to GitHub, including `model/fraud_model.txt` (about 0.6 MB).
-2. Go to [share.streamlit.io](https://share.streamlit.io) and click **New app**.
-3. Choose the repo, set the main file to `app.py`, and deploy.
-4. Paste the app link into the commented line near the top of this README.
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![LightGBM](https://img.shields.io/badge/LightGBM-00bfa5?style=flat-square)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)
 
 ## ⚠️ Limitations
 
@@ -165,3 +235,11 @@ Dataset: [Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/c
 ## 📄 License
 
 Code released under the [MIT License](LICENSE). The dataset keeps its own license.
+
+<div align="center">
+
+**If this project helped you, drop a ⭐ on the repo.**
+
+[▶ Open the live app](https://credit-card-fraud-detection-027.streamlit.app/)
+
+</div>
